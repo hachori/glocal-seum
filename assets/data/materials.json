@@ -1,0 +1,113 @@
+{
+  "updated": "2026-10-17",
+  "domains": [
+    { "id": "g1", "name": "마음 돋움", "sub": "다문화 수용성", "logo": "dodum.png" },
+    { "id": "g2", "name": "실력 채움", "sub": "자기주도적 학습역량", "logo": "chaeum.png" },
+    { "id": "g3", "name": "강점 틔움", "sub": "글로컬 시민성", "logo": "tium.png" },
+    { "id": "g4", "name": "세움 확산", "sub": "확산·일반화", "logo": "" }
+  ],
+  "programs": [
+    {
+      "id": "p01", "domain": "g1", "name": "달(月)별 나라 탐방",
+      "summary": "달마다 ‘이달의 나라’를 정해 인사말을 함께 쓰고, 영상으로 그 나라의 문화를 탐방하는 활동 자료입니다.",
+      "target": "", "school": "", "date": "", "tags": "달별 월별 이달의 나라 인사말 탐방",
+      "items": [
+        { "title": "‘이달의 나라’ 탐방 영상 자료", "type": "video", "url": "", "note": "" },
+        { "title": "3교 15개국 인사말 자료", "type": "doc", "url": "", "note": "" }
+      ]
+    },
+    {
+      "id": "p02", "domain": "g1", "name": "세계 음식의 날",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "급식 음식 요리 포트락",
+      "items": [
+        { "title": "월별 세계 음식 급식 소개 자료", "type": "doc", "url": "", "note": "" },
+        { "title": "학부모 연계 포트락 파티 운영 자료", "type": "doc", "url": "", "note": "" }
+      ]
+    },
+    {
+      "id": "p03", "domain": "g1", "name": "온 책으로 만나는 세계 문화",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "책 그림책 도서 독서 독후",
+      "items": [
+        { "title": "다문화 감수성 도서·권장 도서 목록", "type": "doc", "url": "", "note": "" },
+        { "title": "그림책 독후 활동 학습지 10종", "type": "doc", "url": "", "note": "" }
+      ]
+    },
+    {
+      "id": "p04", "domain": "g2", "name": "한국어학급 교육과정",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "한국어 규정",
+      "items": [
+        { "title": "한국어학급 교육과정 및 규정", "type": "doc", "url": "", "note": "" }
+      ]
+    },
+    {
+      "id": "p05", "domain": "g2", "name": "생활 적응 징검다리 과정",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "적응 징검다리 안내 다국어",
+      "items": [
+        { "title": "학교별 생활 적응 10~12차시 운영안", "type": "doc", "url": "", "note": "" },
+        { "title": "다국어 학교생활 안내 자료", "type": "doc", "url": "", "note": "" }
+      ]
+    },
+    {
+      "id": "p06", "domain": "g2", "name": "맞춤형 교육 자료",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "활동지 어휘 SEL 노래 수준별",
+      "items": [
+        { "title": "수준별 활동지, AI 맞춤형 어휘 자료", "type": "doc", "url": "", "note": "" },
+        { "title": "학교생활 안내 자료, SEL 카드, 학급 노래", "type": "doc", "url": "", "note": "" }
+      ]
+    },
+    {
+      "id": "p07", "domain": "g2", "name": "세움 성장 카드",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "성장 카드 기록 관찰",
+      "items": [
+        { "title": "세움 성장 카드 양식 및 웹 작성 도구", "type": "tool", "url": "", "note": "" }
+      ]
+    },
+    {
+      "id": "p08", "domain": "g3", "name": "문화 강점 틔움",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "재능 기부 뮤직비디오 노래 해피투게더",
+      "items": [
+        { "title": "학부모 재능 기부 수업 자료", "type": "doc", "url": "", "note": "" },
+        { "title": "다문화 노래 뮤직비디오(해피투게더)", "type": "video", "url": "", "note": "" }
+      ]
+    },
+    {
+      "id": "p09", "domain": "g3", "name": "언어 강점 틔움",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "인사 인사말 언어",
+      "items": [
+        { "title": "‘글로컬 세움-세계의 인사’ 교육 자료", "type": "doc", "url": "", "note": "" },
+        { "title": "‘친구의 인사’ 언어 나눔 자료", "type": "doc", "url": "", "note": "" }
+      ]
+    },
+    {
+      "id": "p10", "domain": "g3", "name": "진로 다양성 틔움",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "진로 지역 체험",
+      "items": [
+        { "title": "학년 추천 지역 연계 찾아오고 찾아가는 프로그램", "type": "doc", "url": "", "note": "" }
+      ]
+    },
+    {
+      "id": "p11", "domain": "g4", "name": "교과 융합 프로젝트",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "과정안 지도안 프로젝트 교과",
+      "items": [
+        { "title": "학년별 교과 융합 프로젝트 과정안(18종)", "type": "doc", "url": "", "note": "" }
+      ]
+    },
+    {
+      "id": "p12", "domain": "g4", "name": "세움 다문화교육 주간",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "동요 노래 보드게임 캐릭터 게임",
+      "items": [
+        { "title": "AI 활용 다문화 동요(42곡)", "type": "video", "url": "", "note": "재생목록" },
+        { "title": "다문화 캐릭터·세계 문화 보드 게임", "type": "doc", "url": "", "note": "" }
+      ]
+    }
+  ],
+  "featured": [
+    { "program": "p08", "item": 1, "title": "다문화 노래 뮤직비디오 〈해피투게더〉", "desc": "문화 강점 틔움 활동으로 만든 다문화 노래 뮤직비디오입니다." },
+    { "program": "p01", "item": 0, "title": "‘이달의 나라’ 탐방 영상", "desc": "달마다 한 나라를 정해 인사말과 문화를 함께 알아보는 탐방 영상입니다." },
+    { "program": "p12", "item": 0, "title": "AI 활용 다문화 동요 42곡", "desc": "세움 다문화교육 주간에 만든 다문화 동요 재생목록입니다." }
+  ],
+  "docs": [
+    { "title": "2026학년도 연구학교 운영 계획서", "type": "doc", "url": "", "note": "" },
+    { "title": "2026학년도 연구학교 운영 보고서(1/2)", "type": "doc", "url": "", "note": "" }
+  ]
+}

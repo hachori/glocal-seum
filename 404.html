@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>페이지를 찾을 수 없습니다 · 글로컬 세움 일반화 자료실</title>
+<meta name="robots" content="noindex">
+<style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;background:#F1F8F3;color:#16232D;font-family:'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;word-break:keep-all;text-align:center}
+main{max-width:420px;display:flex;flex-direction:column;align-items:center;gap:14px}
+h1{margin:0;font-size:24px;color:#1D3B53}
+p{margin:0;line-height:1.7;color:#33444F}
+a{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 24px;border-radius:14px;background:#1D3B53;color:#fff;font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<main>
+<svg aria-hidden="true" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22V12" stroke="#18B454" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M12 12.5C11.6 8 8.6 5.5 3.5 5.6C3.6 10.2 6.8 12.6 12 12.5Z" fill="#18B454"/><path d="M12 11C12.4 6.8 15.3 4.2 20.5 4.3C20.4 8.6 17.3 11.1 12 11Z" fill="#3C909C"/></svg>
+<h1>페이지를 찾을 수 없습니다</h1>
+<p>주소가 바뀌었거나 아직 준비 중인 자료입니다. 글로컬 세움 일반화 자료실 홈에서 다시 찾아 주세요.</p>
+<a id="home" href="/">자료실 홈으로</a>
+</main>
+<script>
+/* GitHub Pages 프로젝트 주소(아이디.github.io/저장소/)에서는 첫 경로가 홈 */
+(function () {
+  var seg = location.pathname.split('/')[1];
+  if (/\.github\.io$/.test(location.hostname) && seg) document.getElementById('home').href = '/' + seg + '/';
+})();
+</script>
+</body>
+</html>

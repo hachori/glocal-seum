@@ -87,9 +87,11 @@
     },
     {
       "id": "p11", "domain": "g4", "name": "교과 융합 프로젝트",
-      "summary": "", "target": "", "school": "", "date": "", "tags": "과정안 지도안 프로젝트 교과",
+      "summary": "", "target": "", "school": "", "date": "", "tags": "과정안 지도안 프로젝트 교과 eBook 웹 책자",
       "items": [
-        { "title": "학년별 교과 융합 프로젝트 과정안(18종)", "type": "doc", "url": "", "note": "" }
+        { "title": "대전자운초 교과 융합 프로젝트 과정안", "type": "doc", "format": "ebook", "url": "./p11/ebooks/jawoon.html", "note": "2학기 · 1~6학년" },
+        { "title": "대덕초 교과 융합 프로젝트 과정안", "type": "doc", "format": "ebook", "url": "./p11/ebooks/daedeok.html", "note": "2학기 · 1~6학년" },
+        { "title": "대전전민초 교과 융합 프로젝트 과정안", "type": "doc", "format": "ebook", "url": "./p11/ebooks/jeonmin.html", "note": "2학기 · 1~6학년" }
       ]
     },
     {

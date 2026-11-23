@@ -63,13 +63,15 @@
 
   /* 자료 한 줄: 주소가 있으면 새 창 링크, 없으면 '준비 중' */
   function itemHTML(it, cls) {
-    var t = TYPES[it.type] || TYPES.doc;
+    var ebook = it.format === 'ebook';
+    var t = ebook ? { label: 'eBook', meta: '브라우저에서 읽기', act: '보기' } : (TYPES[it.type] || TYPES.doc);
     var meta = t.label + (it.note ? ' · ' + it.note : (it.url ? ' · ' + t.meta : ''));
     var body = '<span class="well" aria-hidden="true">' + (I[it.type] || I.doc) + '</span>' +
       '<span class="item__txt"><span class="item__t">' + esc(it.title) + '</span><span class="item__m">' + esc(meta) + '</span></span>';
     if (!it.url) return '<div class="item ' + (cls || '') + '">' + body + '<span class="act act--soon">준비 중</span></div>';
-    var icon = it.type === 'video' ? I.play : (it.type === 'tool' ? I.open : I.down);
-    return '<a class="item ' + (cls || '') + '" href="' + esc(it.url) + '" target="_blank" rel="noopener">' + body +
+    var icon = it.type === 'video' ? I.play : (ebook || it.type === 'tool' ? I.open : I.down);
+    var href = it.url.indexOf('./') === 0 ? ROOT + it.url.slice(1) : it.url;
+    return '<a class="item ' + (cls || '') + '" href="' + esc(href) + '" target="_blank" rel="noopener">' + body +
       '<span class="act">' + icon + '<span class="act__t">' + t.act + '</span></span><span class="sr"> (새 창에서 열림)</span></a>';
   }
 

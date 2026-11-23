@@ -2722,7 +2722,9 @@ h3.sub {font-size:10.8pt;font-weight:700;color:var(--school-ink);margin:2mm 0 1m
   const leaves=[...document.querySelectorAll('.sheets > .leaf')];
   const view=document.querySelector('.viewport'), layout=get('layout'), back=get('back'), forward=get('forward'), jump=get('jump'), zoom=get('zoom'), turnLabel=forward.querySelector('.turn-label'), position=get('position');
   const paperWidth=210*96/25.4, paperHeight=297*96/25.4;
-  layout.value=matchMedia('(max-width:650px)').matches?'one':'spread';
+  const singlePageDefault=matchMedia('screen and (max-width:650px) and (orientation:portrait)');
+  let defaultLayout=singlePageDefault.matches?'one':'spread';
+  layout.value=defaultLayout;
   const hashPage=()=>{const n=Number(location.hash.match(/^#p(\d+)$/)?.[1]);return pages.includes(n)?n:pages[0];};
   let current=hashPage(), enlarged=false;
   function groups(){return layout.value==='spread'?spreads:pages.map(n=>[n]);}
@@ -2788,6 +2790,16 @@ h3.sub {font-size:10.8pt;font-weight:700;color:var(--school-ink);margin:2mm 0 1m
     if(a&&pages.includes(Number(a.hash.slice(2)))){e.preventDefault();go(Number(a.hash.slice(2)));}
   });
   layout.addEventListener('change',()=>{stopTurn();render();});
+  singlePageDefault.addEventListener('change',()=>{
+    if(matchMedia('print').matches)return;
+    const nextLayout=singlePageDefault.matches?'one':'spread';
+    if(defaultLayout===nextLayout)return;
+    defaultLayout=nextLayout;
+    if(layout.value===nextLayout)return;
+    stopTurn();
+    layout.value=nextLayout;
+    render();
+  });
   jump.addEventListener('change',()=>go(+jump.value));
   zoom.addEventListener('click',()=>{stopTurn();enlarged=!enlarged;render();});
   function restore(){go(hashPage(),false);}

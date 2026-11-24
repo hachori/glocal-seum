@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "LeeSeoyun";
+  src: url("./fonts/lee-seoyun.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
   font-family: system-ui, -apple-system, "Malgun Gothic", "맑은 고딕", sans-serif;
@@ -40,11 +48,13 @@ body {
 
 h1, h2, p { margin: 0; }
 
-h1 {
+.library-header h1 {
+  font-family: "LeeSeoyun", system-ui, sans-serif;
   font-size: clamp(2rem, 5.2vw, 3.55rem);
   line-height: 1.17;
-  letter-spacing: -.062em;
-  font-weight: 820;
+  letter-spacing: -.02em;
+  font-weight: 400;
+  font-synthesis: none;
 }
 
 .library-header p {

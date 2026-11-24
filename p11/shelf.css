@@ -44,6 +44,7 @@ body {
   width: clamp(6.2rem, 15vw, 8.5rem);
   height: auto;
   margin: 0 auto .45rem;
+  touch-action: manipulation;
 }
 
 h1, h2, p { margin: 0; }
@@ -236,9 +237,6 @@ h1, h2, p { margin: 0; }
 
 .offline details p { padding: .12rem .15rem .25rem; }
 .offline details p strong { color: var(--ink); padding-right: .35rem; }
-
-footer { padding-top: .75rem; text-align: center; }
-footer a { display: inline-block; padding: .5rem; color: var(--quiet); font-size: .88rem; text-underline-offset: .2em; }
 
 @media (max-width: 440px) {
   :root { --label-height: 2.95rem; }

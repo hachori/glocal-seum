@@ -4,8 +4,25 @@
   const save = document.getElementById('offline-save');
   const status = document.getElementById('offline-status');
   const progress = document.getElementById('offline-progress');
-  const onlineLibrary = document.getElementById('online-library');
+  const settings = document.getElementById('offline-settings');
+  const logo = document.querySelector('.library-header .brand');
   const serviceWorker = navigator.serviceWorker;
+  settings.hidden = new URLSearchParams(location.search).get('offline') !== '1';
+
+  let logoTaps = 0;
+  let lastTap = 0;
+  logo.addEventListener('click', () => {
+    if (!settings.hidden) return;
+
+    const now = performance.now();
+    logoTaps = now - lastTap < 850 ? logoTaps + 1 : 1;
+    lastTap = now;
+    if (logoTaps === 3) {
+      settings.hidden = false;
+      settings.scrollIntoView({ block: 'nearest' });
+    }
+  });
+
   if (navigator.standalone || matchMedia('(display-mode: standalone)').matches) {
     document.getElementById('install-help').hidden = true;
   }
@@ -60,7 +77,6 @@
   }
 
   function renderStatus() {
-    onlineLibrary.hidden = !navigator.onLine;
     save.disabled = checking || downloading || !saved || saved.ready || !navigator.onLine;
     if (downloading) {
       save.textContent = '저장 중';

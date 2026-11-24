@@ -1,0 +1,247 @@
+/* A flat illustration in the proportions of its own artboard. */
+.archive-art {
+  width: min(100%, 510px);
+  aspect-ratio: 1.35;
+  container-type: inline-size;
+  position: relative;
+  isolation: isolate;
+  color: #000;
+  user-select: none;
+  pointer-events: none;
+}
+.archive-art *,
+.archive-art *::before,
+.archive-art *::after { box-sizing: border-box; }
+.archive-art .art-sheet {
+  --edge: .44cqw solid #000;
+  position: absolute;
+  border: var(--edge);
+  background: #dceeb1;
+  left: 13.5%;
+  top: 24%;
+  width: 61%;
+  height: 64%;
+  transform: rotate(-12deg);
+  border-radius: .7cqw;
+}
+.archive-art .art-sheet::before {
+  content: "";
+  position: absolute;
+  left: 3cqw;
+  top: -3.4cqw;
+  width: 18cqw;
+  height: 3.5cqw;
+  background: inherit;
+  border: var(--edge);
+  border-bottom: 0;
+  border-radius: 1.4cqw 1.4cqw 0 0;
+}
+.archive-art .art-sheet::after {
+  content: "";
+  position: absolute;
+  left: 3.2cqw;
+  bottom: 3.4cqw;
+  width: 6.8cqw;
+  height: 1.4cqw;
+  border-block: .35cqw solid #000;
+}
+.archive-art .art-book {
+  position: absolute;
+  left: 26%;
+  top: 5%;
+  width: 53%;
+  height: 85%;
+  transform: rotate(8deg);
+  --edge: .48cqw solid #000;
+}
+.archive-art .art-book::before,
+.archive-art .art-book::after,
+.archive-art .art-face {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: var(--edge);
+  border-radius: .8cqw 1.1cqw 1.1cqw .8cqw;
+}
+.archive-art .art-book::before {
+  transform: translate(1.3cqw, 1.9cqw);
+  background: #1f1d3d;
+}
+.archive-art .art-book::after {
+  transform: translate(.68cqw, 1.02cqw);
+  background: #fff;
+}
+.archive-art .art-face {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 3.1cqw 3.5cqw 2.6cqw 5.6cqw;
+  background: #f4ecd6;
+}
+.archive-art .art-header,
+.archive-art .art-foot {
+  display: flex;
+  flex: none;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1cqw;
+  line-height: 1;
+}
+.archive-art .art-header {
+  padding-bottom: 1.6cqw;
+  border-bottom: .35cqw solid;
+}
+.archive-art .art-logo {
+  display: block;
+  width: 21cqw;
+  max-width: none;
+  height: auto;
+}
+.archive-art .art-year { font-weight: 600; font-size: 2.75cqw; letter-spacing: -.05em; }
+.archive-art .art-emblem {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+}
+.archive-art .art-globe {
+  position: absolute;
+  width: 29.6cqw;
+  height: 29.6cqw;
+  left: 2.5cqw;
+  bottom: 2.3cqw;
+  transform: rotate(-22deg);
+  overflow: hidden;
+  border-radius: 50%;
+  border: .76cqw solid;
+  background: #dceeb1;
+}
+.archive-art .art-globe::before {
+  content: "";
+  position: absolute;
+  inset: -.45cqw 21%;
+  border: .58cqw solid;
+  border-radius: 50%;
+}
+.archive-art .art-globe::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - .29cqw);
+  border-left: .58cqw solid;
+}
+.archive-art .art-equator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% - .29cqw);
+  border-top: .58cqw solid;
+}
+.archive-art .art-parallel {
+  position: absolute;
+  left: -8%;
+  width: 116%;
+  height: 52%;
+  border-radius: 50%;
+}
+.archive-art .art-parallel--n { top: -22%; border-bottom: .58cqw solid; }
+.archive-art .art-parallel--s { bottom: -22%; border-top: .58cqw solid; }
+.archive-art .art-shoot {
+  position: absolute;
+  width: 14cqw;
+  height: 13.3cqw;
+  left: 23cqw;
+  bottom: 25.9cqw;
+  transform: rotate(3deg);
+}
+.archive-art .art-shoot::before {
+  content: "";
+  position: absolute;
+  left: 3.5cqw;
+  bottom: -1.4cqw;
+  width: .8cqw;
+  height: 6.5cqw;
+  background: #000;
+  transform-origin: 50% 100%;
+  transform: rotate(27deg);
+}
+.archive-art .art-leaf {
+  position: absolute;
+  display: block;
+  background: #000;
+  border-radius: 96% 3% 96% 3%;
+}
+.archive-art .art-leaf--one {
+  left: 0;
+  top: 1.3cqw;
+  width: 6.7cqw;
+  height: 8.8cqw;
+  transform: rotate(-57deg);
+}
+.archive-art .art-leaf--two {
+  right: .1cqw;
+  top: 3.6cqw;
+  width: 8cqw;
+  height: 6.2cqw;
+  transform: rotate(9deg);
+}
+.archive-art .art-foot {
+  border-top: .35cqw solid;
+  padding-top: 1.6cqw;
+}
+.archive-art .art-book-title {
+  font-size: 3.7cqw;
+  font-weight: 700;
+  letter-spacing: -.05em;
+  line-height: 1.15;
+}
+.archive-art .art-print {
+  display: flex;
+  align-items: stretch;
+  gap: .4cqw;
+  height: 2.7cqw;
+}
+.archive-art .art-print > b {
+  display: block;
+  width: .4cqw;
+  background: #000;
+}
+.archive-art .art-print > b:nth-child(3n + 1) { width: .85cqw; }
+.archive-art .art-wires {
+  position: absolute;
+  z-index: 2;
+  top: 5%;
+  bottom: 5%;
+  left: -1.7cqw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.archive-art .art-wires > i {
+  display: block;
+  width: 4.4cqw;
+  height: 1.75cqw;
+  border: .47cqw solid #000;
+  border-radius: 999px;
+  position: relative;
+}
+.archive-art .art-wires > i::after {
+  content: "";
+  position: absolute;
+  right: -.5cqw;
+  top: -.47cqw;
+  width: .94cqw;
+  height: 1.75cqw;
+  border-radius: 999px;
+  background: #000;
+}
+.archive-art .art-twinkle {
+  position: absolute;
+  top: 19%;
+  right: 5%;
+  width: 5cqw;
+  height: 6.8cqw;
+  background: #000;
+  clip-path: polygon(50% 0, 60% 35%, 100% 50%, 60% 61%, 50% 100%, 39% 61%, 0 50%, 39% 37%);
+  transform: rotate(11deg);
+}

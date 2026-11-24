@@ -19,6 +19,9 @@ def main():
     domains = {d["id"]: d for d in data["domains"]}
     tpl = TEMPLATE.read_text(encoding="utf-8")
     for p in data["programs"]:
+        # QR 11은 독립된 전자책 책장 화면을 사용한다.
+        if p["id"] == "p11":
+            continue
         page = (tpl.replace("{{ID}}", p["id"])
                    .replace("{{NO}}", p["id"][1:])
                    .replace("{{NAME}}", html.escape(p["name"]))

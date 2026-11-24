@@ -1,0 +1,284 @@
+/* QR 프로그램 상세 화면 */
+body[data-program] #program {
+  --paper: #f4ecd6;
+  --ink: #000;
+  --edge: #e6e6e6;
+  --detail-width: 1280px;
+  --detail-gutter: var(--gut);
+  background: #fff;
+  color: var(--ink);
+}
+body[data-program] #program.dom-g1 { --paper: #efd4d4; }
+body[data-program] #program.dom-g2 { --paper: #f4ecd6; }
+body[data-program] #program.dom-g3 { --paper: #c8e6cd; }
+body[data-program] #program.dom-g4 { --paper: #c5b0f4; }
+
+body[data-program] #program > .wrap,
+body[data-program] .phero {
+  width: calc(100% - var(--detail-gutter) * 2);
+  max-width: var(--detail-width);
+  margin-inline: auto;
+}
+body[data-program] #program > .wrap { padding-inline: 0; }
+body[data-program] .crumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 62px;
+  font-size: 14px;
+  color: #636363;
+}
+body[data-program] .crumb a { color: #414141; text-decoration: none; }
+body[data-program] .crumb a:hover { text-decoration: underline; }
+body[data-program] .phero {
+  overflow: hidden;
+  border: 0;
+  border-radius: 24px;
+  background: var(--paper);
+}
+body[data-program] .phero .wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(155px, 27%);
+  align-items: center;
+  gap: clamp(28px, 5vw, 84px);
+  min-height: clamp(274px, 25vw, 355px);
+  max-width: none;
+  padding: clamp(32px, 4vw, 60px) clamp(28px, 4.7vw, 72px);
+}
+body[data-program] .phero__meta {
+  gap: 12px;
+  margin-bottom: clamp(20px, 2.2vw, 32px);
+}
+body[data-program] .phero__meta .qr-badge {
+  height: auto;
+  padding: 5px 11px;
+  border: 1px solid #000;
+  border-radius: 999px;
+  background: transparent;
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: .035em;
+  font-variant-numeric: tabular-nums;
+}
+body[data-program] .phero__dom {
+  font-size: clamp(13px, 1.35vw, 16px);
+  font-weight: 500;
+  color: #1b1b1b;
+}
+body[data-program] .phero__h {
+  margin: 0;
+  color: #000;
+  font-size: clamp(40px, 4.6vw, 72px);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -.057em;
+  text-wrap: balance;
+}
+body[data-program] .phero__sum {
+  max-width: 38em;
+  margin-top: 18px;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.55;
+  color: #2d2d2d;
+}
+
+/* 원래 영역 로고를 겹친 수업 자료 카드에 배치한다. */
+body[data-program] .phero__art {
+  position: relative;
+  width: 77%;
+  max-width: 200px;
+  aspect-ratio: 11 / 9;
+  justify-self: center;
+  isolation: isolate;
+}
+body[data-program] .phero__art::before,
+body[data-program] .phero__art::after,
+body[data-program] .phero__sheet {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid #111;
+  border-radius: 4px;
+}
+body[data-program] .phero__art::before {
+  content: "";
+  background: #111;
+  transform: translate(13%, 9%) rotate(9deg);
+}
+body[data-program] .phero__art::after {
+  content: "";
+  background: var(--paper);
+  transform: translate(7%, 3%) rotate(3deg);
+}
+body[data-program] .phero__sheet {
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  transform: rotate(-7deg);
+  background: #fff;
+}
+body[data-program] .phero__sheet::before,
+body[data-program] .phero__sheet::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 12%;
+  background: #151515;
+}
+body[data-program] .phero__sheet::before { top: 11%; left: 9%; }
+body[data-program] .phero__sheet::after { bottom: 11%; right: 9%; }
+body[data-program] .phero__sheet .phero__logo {
+  width: 62%;
+  height: auto;
+  transform: rotate(7deg);
+}
+body[data-program] .phero__sheet .mark {
+  width: 52%;
+  height: auto;
+  aspect-ratio: 1;
+  background: transparent;
+  transform: rotate(7deg);
+}
+body[data-program] .phero__sheet .mark svg { width: 100%; height: 100%; }
+
+body[data-program] .pbody {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(235px, 1fr);
+  align-items: start;
+  gap: clamp(36px, 6vw, 94px);
+  padding-block: clamp(42px, 5vw, 76px) clamp(56px, 7vw, 100px);
+}
+body[data-program] .ph2 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 20px;
+  color: #000;
+  font-size: clamp(25px, 2.4vw, 36px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.055em;
+}
+body[data-program] .ph2 span {
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+body[data-program] .mats { gap: 0; border-top: 1px solid #161616; }
+body[data-program] .mats .item {
+  min-height: 84px;
+  padding: 16px 0;
+  gap: clamp(10px, 1.5vw, 18px);
+  border: none;
+  border-bottom: 1px solid var(--edge);
+  border-radius: 0;
+  color: #000;
+}
+body[data-program] .mats a.item:hover { background: #f7f7f5; }
+body[data-program] .mats .well {
+  flex-basis: 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--paper);
+  color: #000;
+}
+body[data-program] .mats .item__txt { gap: 3px; }
+body[data-program] .mats .item__t { font-size: clamp(16px, 1.37vw, 20px); letter-spacing: -.025em; }
+body[data-program] .mats .item__m { font-size: 13px; color: #5c5c5c; }
+body[data-program] .mats .act {
+  height: auto;
+  min-height: 33px;
+  padding: 4px 13px;
+  border: 1px solid #000;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+body[data-program] .mats .act--soon { border-color: #dfdfdc; background: #f7f7f5; color: #565656; }
+body[data-program] .pbody__video { margin-top: 32px; }
+body[data-program] .player { border-radius: 20px; background: #1f1d3d; }
+body[data-program] .player__play { color: #000; }
+body[data-program] .pinfo { margin-top: 28px; padding: 16px 20px; border-radius: 8px; background: #f7f7f5; }
+body[data-program] .pinfo dt, body[data-program] .pinfo dd { color: #000; }
+body[data-program] .pbody__links .ph2 {
+  margin-bottom: 14px;
+  font-size: clamp(19px, 1.55vw, 24px);
+  letter-spacing: -.035em;
+}
+body[data-program] .rel { border-top: 1px solid var(--edge); }
+body[data-program] .rel a {
+  min-height: 58px;
+  padding: 10px 0;
+  border-color: var(--edge);
+  color: #000;
+  line-height: 1.4;
+}
+body[data-program] .rel a:hover .rel__t { text-decoration: underline; text-underline-offset: 3px; }
+body[data-program] .rel__n {
+  flex: none;
+  color: #616161;
+  font-size: 12px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+body[data-program] .rel__t { font-size: 16px; letter-spacing: -.02em; }
+body[data-program] .cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 44px;
+  margin-top: 24px;
+  padding-inline: 19px;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+}
+body[data-program] .cta:hover { background: #303030; }
+body[data-program] .toast {
+  top: auto;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  width: max-content;
+  max-width: calc(100% - 32px);
+  border-radius: 999px;
+  background: #000;
+  box-shadow: none;
+}
+body[data-program] .toast svg { stroke: #dceeb1; }
+
+@media (max-width: 760px) {
+  body[data-program] .pbody { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+  body[data-program] .phero .wrap { gap: 18px; grid-template-columns: minmax(0, 1fr) minmax(100px, 23%); }
+  body[data-program] .phero__art { width: 88%; }
+}
+@media (max-width: 530px) {
+  body[data-program] #program { --detail-gutter: 18px; }
+  body[data-program] .crumb { min-height: 48px; font-size: 13px; }
+  body[data-program] .phero { border-radius: 20px; }
+  body[data-program] .phero .wrap { display: block; min-height: 0; padding: 24px; }
+  body[data-program] .phero__art { position: absolute; top: 21px; right: 26px; width: 44px; }
+  body[data-program] .phero__sheet,
+  body[data-program] .phero__art::before,
+  body[data-program] .phero__art::after { border-width: 1px; border-radius: 2px; }
+  body[data-program] .phero__meta { min-height: 36px; padding-right: 53px; margin-bottom: 24px; gap: 6px 9px; }
+  body[data-program] .phero__h { font-size: clamp(35px, 9.2vw, 49px); letter-spacing: -.052em; }
+  body[data-program] .phero__sum { margin-top: 16px; }
+  body[data-program] .ph2 { font-size: 28px; }
+  body[data-program] .mats .item { gap: 10px; }
+  body[data-program] .mats .well { flex-basis: 34px; width: 34px; height: 34px; }
+  body[data-program] .mats .act { min-height: 29px; padding-inline: 9px; font-size: 12px; }
+}
+@media (max-width: 767px) {
+  body[data-program] .phero { width: 100%; border-radius: 0; }
+}
+@media (max-width: 560px) {
+  body[data-program] .cta { display: flex; }
+}

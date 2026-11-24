@@ -43,6 +43,10 @@
     });
   }
 
+  function programLink(id) {
+    return ROOT + '/' + id + '/' + (location.protocol === 'file:' ? 'index.html' : '');
+  }
+
   function prepare(data) {
     data.domainById = {};
     data.programById = {};
@@ -128,7 +132,7 @@
           });
           if (rows) {
             body += '<div class="prow rv" id="' + p.id + '"><div class="prow__top"><span class="qr-badge">QR ' + p.no + '</span>' +
-              '<h4 class="prow__name"><a href="' + ROOT + '/' + p.id + '/">' + esc(p.name) + '</a></h4></div>' +
+              '<h4 class="prow__name"><a href="' + programLink(p.id) + '">' + esc(p.name) + '</a></h4></div>' +
               '<div class="items">' + rows + '</div></div>';
           }
         });
@@ -199,7 +203,7 @@
       render();
     });
     $$('[data-pick]').forEach(function (a) {
-      a.addEventListener('click', function () { state.dom = a.getAttribute('data-pick'); render(); });
+      a.addEventListener('click', function () { resetAll(); state.dom = a.getAttribute('data-pick'); render(); });
     });
     document.addEventListener('click', function (e) { if (e.target.closest('[data-reset], #reset')) resetAll(); });
 
@@ -207,7 +211,7 @@
     renderStatic(data);
     if (location.hash.length > 1) {
       var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-      if (target) { target.scrollIntoView(); target.classList.add('is-target'); }
+      if (target) { target.scrollIntoView({ behavior: 'instant' }); target.classList.add('is-target'); }
     }
   }
 
@@ -230,7 +234,7 @@
     var qg = $('#qrgrid');
     if (qg) {
       qg.innerHTML = data.programs.map(function (p, i) {
-        return '<li class="rv" style="--i:' + (i % 3) + '"><a class="qtile dom-' + p.domain + '" href="' + ROOT + '/' + p.id + '/">' +
+        return '<li class="rv" style="--i:' + (i % 3) + '"><a class="qtile dom-' + p.domain + '" href="' + programLink(p.id) + '">' +
           '<span class="qtile__n">' + p.no + '</span><span class="qtile__t">' + esc(p.name) + '</span></a></li>';
       }).join('');
     }
@@ -240,7 +244,7 @@
       fg.innerHTML = data.featured.map(function (f, i) {
         var p = data.programById[f.program], d = data.domainById[p.domain], it = p.items[f.item] || {};
         var y = youtube(it.url);
-        return '<a class="vcard rv dom-' + d.id + '" style="--i:' + i + '" href="' + ROOT + '/' + p.id + '/">' +
+        return '<a class="vcard rv dom-' + d.id + '" style="--i:' + i + '" href="' + programLink(p.id) + '">' +
           '<span class="vthumb">' + (y && y.thumb ? '<img src="' + y.thumb + '" alt="" loading="lazy">' : '') +
           '<span class="vplay" aria-hidden="true">' + I.playL + '</span>' +
           (y && y.thumb ? '' : '<span class="vtag">' + (it.url ? '재생목록' : '영상 준비 중') + '</span>') + '</span>' +
@@ -285,32 +289,32 @@
       } else if (vid.url) {
         player = '<a class="player" href="' + esc(vid.url) + '" target="_blank" rel="noopener"><span class="player__play" aria-hidden="true">' + I.playL + '</span>' +
           '<span class="player__cap">' + esc(vid.title) + ' (새 창에서 열림)</span></a>';
-      } else {
-        player = '<div class="player player--soon">영상 준비 중입니다</div>';
       }
     }
     var info = [['대상', p.target], ['제작', p.school], ['탑재일', p.date]].filter(function (r) { return r[1]; });
     var rel = data.programs.filter(function (x) { return x.domain === p.domain && x.id !== p.id; });
 
     main.innerHTML =
+      '<nav class="wrap crumb" aria-label="현재 위치"><a href="' + ROOT + '/index.html">홈</a><span aria-hidden="true">/</span><a href="' + ROOT + '/index.html#' + d.id + '">' + esc(d.name) + '</a></nav>' +
       '<div class="phero"><div class="wrap">' +
-        '<nav class="crumb hi" style="--i:0" aria-label="현재 위치"><a href="' + ROOT + '/">홈</a> › <a href="' + ROOT + '/#' + d.id + '">' + esc(d.name) + '</a></nav>' +
-        '<div class="phero__meta hi" style="--i:1"><span class="qr-badge">QR ' + p.no + '</span>' + mark(d, 'phero__logo') +
+        '<div class="phero__copy"><div class="phero__meta"><span class="qr-badge">QR ' + p.no + '</span>' +
           '<span class="phero__dom">' + esc(d.name + ' · ' + d.sub) + '</span></div>' +
-        '<h1 class="phero__h hi" style="--i:2">' + esc(p.name) + '</h1>' +
-        (p.summary ? '<p class="phero__sum hi" style="--i:3">' + esc(p.summary) + '</p>' : '') +
+        '<h1 class="phero__h">' + esc(p.name) + '</h1>' +
+        (p.summary ? '<p class="phero__sum">' + esc(p.summary) + '</p>' : '') + '</div>' +
+        '<div class="phero__art" aria-hidden="true"><div class="phero__sheet">' + mark(d, 'phero__logo') + '</div></div>' +
       '</div></div>' +
       '<div class="wrap pbody">' +
-        (player ? '<div class="hi" style="--i:4">' + player + '</div>' : '') +
-        '<section class="hi" style="--i:5" aria-labelledby="mats-t"><h2 class="ph2" id="mats-t">이 프로그램의 자료 <span>' + p.items.length + '</span></h2>' +
+        '<div class="pbody__main"><section aria-labelledby="mats-t"><h2 class="ph2" id="mats-t">이 프로그램의 자료 <span>' + p.items.length + '종</span></h2>' +
           '<div class="mats">' + p.items.map(function (it) { return itemHTML(it); }).join('') + '</div></section>' +
         (info.length ? '<dl class="pinfo">' + info.map(function (r) { return '<dt>' + r[0] + '</dt><dd>' + esc(r[1]) + '</dd>'; }).join('') + '</dl>' : '') +
+        (player ? '<div class="pbody__video">' + player + '</div>' : '') + '</div>' +
+        '<aside class="pbody__links">' +
         (rel.length ? '<section aria-labelledby="rel-t"><h2 class="ph2" id="rel-t">' + esc(d.name) + '의 다른 프로그램</h2><div class="rel">' +
           rel.map(function (x) {
-            return '<a href="' + ROOT + '/' + x.id + '/"><span class="rel__n">QR ' + x.no + '</span><span class="rel__t">' + esc(x.name) + '</span>' + I.chev + '</a>';
+            return '<a href="' + programLink(x.id) + '"><span class="rel__n">QR ' + x.no + '</span><span class="rel__t">' + esc(x.name) + '</span>' + I.chev + '</a>';
           }).join('') + '</div></section>' : '') +
-        '<a class="cta" href="' + ROOT + '/#all">전체 자료 ' + data.total + '종 보기' + I.arrow + '</a>' +
-      '</div>';
+        '<a class="cta" href="' + ROOT + '/index.html#all">전체 자료 ' + data.total + '종 보기</a>' +
+      '</aside></div>';
 
     var btn = $('.player[data-embed]', main);
     if (btn) {

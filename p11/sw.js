@@ -3,7 +3,7 @@
 const scope = new URL(self.registration.scope);
 const prefix = 'glocal-seum-p11-ebooks:' + scope.pathname + ':';
 // Advance this dated release ID when the shell, books or asset inventory changes.
-const version = '2026-11-24-03';
+const version = '2026-11-24-04';
 const cacheName = prefix + version;
 const readyKey = new URL('./.offline-ready', scope).href;
 const books = ['jawoon', 'daedeok', 'jeonmin'];
